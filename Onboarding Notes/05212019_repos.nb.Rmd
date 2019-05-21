@@ -1,0 +1,37 @@
+---
+title: "Notes on Organizing functions with S3 methods"
+output: html_notebook
+---
+
+What if you have a general data wrangling procedure, that works for all your projects, but you need it customized for different variants? 
+In other words, this procedure basically applies to all of your projects, but it is somewhat different, small things you want to change?
+
+You make an s3 object that defines your project. 
+
+```{r}
+create_project <- function(project_name, options){
+    project <- structure(
+        list(
+            project_name = project_name,
+               
+            # Note that you can wrap all project 
+            # specific params into an options list 
+            # and unpack it later in the S3 methods.
+        	options = options
+        ),
+      
+        # class name is simply the project_name, you 
+        # can also assign additonal parent classes to
+        # set up an inheritance structure, which is 
+        # particularly useful if you have layers of 
+        # projects that follow one generic procedure
+       
+        # E.g., class = c(project_name, "my_project")
+        # all projects are also "my_project"
+        class = project_name
+    )
+    return(project)
+}
+
+```
+
