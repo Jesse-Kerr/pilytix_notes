@@ -3,12 +3,17 @@ title: "Notes on Organizing functions with S3 methods"
 output: html_notebook
 ---
 
-What if you have a general data wrangling procedure, that works for all your projects, but you need it customized for different variants? 
-In other words, this procedure basically applies to all of your projects, but it is somewhat different, small things you want to change?
+What if you have a general data wrangling procedure, that works for all your 
+projects, but you need it customized for different variants? 
+In other words, this procedure basically applies to all of your projects, but it 
+is somewhat different, small things you want to change?
 
 You make an s3 object that defines your project. 
 
 ```{r}
+#create_project is a function that takes a project_name and some options, and 
+#uses the structure function, which returns the given object with further 
+#attributes set.
 create_project <- function(project_name, options){
     project <- structure(
         list(
@@ -33,5 +38,90 @@ create_project <- function(project_name, options){
     return(project)
 }
 
+create_project("yo", options = 1)
+```
+
+R has a simple generic function mechanism which can be used for 
+object-oriented style.
+
+Method dispatch uses the class of the first argument to the generic.
+
+UseMethod takes a generic and an object. So here process_data is the generic, 
+and obj is the object.
+```{r}
+process_data <- function(obj, data){
+    UseMethod("process_data", obj)
+}
+```
+
+You can also create a default method that works for all projects
+```{r}
+process_data.default <- function(obj, data){
+    # do something that applies to every project
+    return(data)
+}
+```
+
+Question: 
+```{r}
+process_data.my_project <- function(obj, data) {
+  return(data)
+}
+```
+
+Project specific s3 methods
+```{r}
+process_data.project_alpha <- function(obj, data) {
+  options <- obj$options
+  NextMethod()
+}
+```
+
+If a function calls UseMethod("fun"), and it is applied to an object with class
+attributes c("first", "second"), the system searches for a function called 
+fun.first, and then applies it to the object. If that is not found, then it 
+tries to find fun.second. If that is not found, it tries to find fun.default. If
+that is not found, an error results. 
+
+```{r}
+run_data_process <- function(name, options, data){
+       
+  #create a project
+    project <- create_project(name, options)
+  #run the process_data func.
+	processed_data <- process_data(
+        project, 
+        data = data
+    )
+    return(processed_data)
+}
+   
+# execute!
+alpha_processed <- run_data_process(
+    "alpha", list(alpha = "good"), 
+    'alpha_data'
+)
+beta_processed <- run_data_process(
+    "beta", list(beta = "better"), 
+    beta_data
+)
+```
+
+
+#Closures
+```{r}
+
+df <- data.frame(replicate(6, sample(c(1:10, -99), 6, replace = TRUE)))
+mis <- function(na_value) {
+  function(x) {
+    x[x == na_value] <- NA
+    x
+  }
+}
+mis99 <- mis(-99)
+
+df[] <- lapply(df, mis99)
+
+map(df, c(mode, median), na.rm = T)
 ```
 

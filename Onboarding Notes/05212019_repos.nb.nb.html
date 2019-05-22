@@ -1771,37 +1771,135 @@ $(document).ready(function () {
 <p>You make an s3 object that defines your project.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JlYXRlX3Byb2plY3QgPC0gZnVuY3Rpb24ocHJvamVjdF9uYW1lLCBvcHRpb25zKXtcbiAgICBwcm9qZWN0IDwtIHN0cnVjdHVyZShcbiAgICAgICAgbGlzdChcbiAgICAgICAgICAgIHByb2plY3RfbmFtZSA9IHByb2plY3RfbmFtZSxcbiAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgIyBOb3RlIHRoYXQgeW91IGNhbiB3cmFwIGFsbCBwcm9qZWN0IFxuICAgICAgICAgICAgIyBzcGVjaWZpYyBwYXJhbXMgaW50byBhbiBvcHRpb25zIGxpc3QgXG4gICAgICAgICAgICAjIGFuZCB1bnBhY2sgaXQgbGF0ZXIgaW4gdGhlIFMzIG1ldGhvZHMuXG4gICAgICAgIFx0b3B0aW9ucyA9IG9wdGlvbnNcbiAgICAgICAgKSxcbiAgICAgIFxuICAgICAgICAjIGNsYXNzIG5hbWUgaXMgc2ltcGx5IHRoZSBwcm9qZWN0X25hbWUsIHlvdSBcbiAgICAgICAgIyBjYW4gYWxzbyBhc3NpZ24gYWRkaXRvbmFsIHBhcmVudCBjbGFzc2VzIHRvXG4gICAgICAgICMgc2V0IHVwIGFuIGluaGVyaXRhbmNlIHN0cnVjdHVyZSwgd2hpY2ggaXMgXG4gICAgICAgICMgcGFydGljdWxhcmx5IHVzZWZ1bCBpZiB5b3UgaGF2ZSBsYXllcnMgb2YgXG4gICAgICAgICMgcHJvamVjdHMgdGhhdCBmb2xsb3cgb25lIGdlbmVyaWMgcHJvY2VkdXJlXG4gICAgICAgXG4gICAgICAgICMgRS5nLiwgY2xhc3MgPSBjKHByb2plY3RfbmFtZSwgXCJteV9wcm9qZWN0XCIpXG4gICAgICAgICMgYWxsIHByb2plY3RzIGFyZSBhbHNvIFwibXlfcHJvamVjdFwiXG4gICAgICAgIGNsYXNzID0gcHJvamVjdF9uYW1lXG4gICAgKVxuICAgIHJldHVybihwcm9qZWN0KVxufVxuXG5gYGAifQ== -->
-<pre class="r"><code>create_project &lt;- function(project_name, options){
-    project &lt;- structure(
-        list(
-            project_name = project_name,
-               
-            # Note that you can wrap all project 
-            # specific params into an options list 
-            # and unpack it later in the S3 methods.
-            options = options
-        ),
-      
-        # class name is simply the project_name, you 
-        # can also assign additonal parent classes to
-        # set up an inheritance structure, which is 
-        # particularly useful if you have layers of 
-        # projects that follow one generic procedure
-       
-        # E.g., class = c(project_name, &quot;my_project&quot;)
-        # all projects are also &quot;my_project&quot;
-        class = project_name
-    )
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JlYXRlX3Byb2plY3QoXCJ5b1wiLCBvcHRpb25zID0gMSlcblxuYGBgIn0= -->
+<pre class="r"><code>create_project(&quot;yo&quot;, options = 1)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiZGVidWdnaW5nIGluOiBjcmVhdGVfcHJvamVjdChcInlvXCIsIG9wdGlvbnMgPSAxKVxuZGVidWcgYXQgIzE6IHtcbiAgICBwcm9qZWN0IDwtIHN0cnVjdHVyZShsaXN0KHByb2plY3RfbmFtZSA9IHByb2plY3RfbmFtZSwgb3B0aW9ucyA9IG9wdGlvbnMpLCBcbiAgICAgICAgY2xhc3MgPSBwcm9qZWN0X25hbWUpXG4gICAgcmV0dXJuKHByb2plY3QpXG59XG5kZWJ1ZyBhdCAjMjogcHJvamVjdCA8LSBzdHJ1Y3R1cmUobGlzdChwcm9qZWN0X25hbWUgPSBwcm9qZWN0X25hbWUsIG9wdGlvbnMgPSBvcHRpb25zKSwgXG4gICAgY2xhc3MgPSBwcm9qZWN0X25hbWUpXG4ifQ== -->
+<pre><code>debugging in: create_project(&quot;yo&quot;, options = 1)
+debug at #1: {
+    project &lt;- structure(list(project_name = project_name, options = options), 
+        class = project_name)
     return(project)
 }
+debug at #2: project &lt;- structure(list(project_name = project_name, options = options), 
+    class = project_name)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJvamVjdF9uYW1lXG5gYGAifQ== -->
+<pre class="r"><code>project_name</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwieW9cIlxuIn0= -->
+<pre><code>[1] &quot;yo&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3B0aW9uc1xuYGBgIn0= -->
+<pre class="r"><code>options</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcbmRlYnVnIGF0ICMyMjogcmV0dXJuKHByb2plY3QpXG5leGl0aW5nIGZyb206IGNyZWF0ZV9wcm9qZWN0KFwieW9cIiwgb3B0aW9ucyA9IDEpXG4kcHJvamVjdF9uYW1lXG5bMV0gXCJ5b1wiXG5cbiRvcHRpb25zXG5bMV0gMVxuXG5hdHRyKCxcImNsYXNzXCIpXG5bMV0gXCJ5b1wiXG4ifQ== -->
+<pre><code>[1] 1
+debug at #22: return(project)
+exiting from: create_project(&quot;yo&quot;, options = 1)
+$project_name
+[1] &quot;yo&quot;
+
+$options
+[1] 1
+
+attr(,&quot;class&quot;)
+[1] &quot;yo&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>R has a simple generic function mechanism which can be used for object-oriented style.</p>
+<p>Method dispatch uses the class of the first argument to the generic.</p>
+<p>UseMethod takes a generic and an object. So here process_data is the generic, and obj is the object.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJvY2Vzc19kYXRhIDwtIGZ1bmN0aW9uKG9iaiwgZGF0YSl7XG4gICAgVXNlTWV0aG9kKFwicHJvY2Vzc19kYXRhXCIsIG9iailcbn1cbmBgYCJ9 -->
+<pre class="r"><code>process_data &lt;- function(obj, data){
+    UseMethod(&quot;process_data&quot;, obj)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>You can also create a default method that works for all projects</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJvY2Vzc19kYXRhLmRlZmF1bHQgPC0gZnVuY3Rpb24ob2JqLCBkYXRhKXtcbiAgICAjIGRvIHNvbWV0aGluZyB0aGF0IGFwcGxpZXMgdG8gZXZlcnkgcHJvamVjdFxuICAgIHJldHVybihkYXRhKVxufVxuYGBgIn0= -->
+<pre class="r"><code>process_data.default &lt;- function(obj, data){
+    # do something that applies to every project
+    return(data)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Question:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICByZXR1cm4oZGF0YSlcblxuYGBgIn0= -->
+<pre class="r"><code>  return(data)
 </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IG5vIGZ1bmN0aW9uIHRvIHJldHVybiBmcm9tLCBqdW1waW5nIHRvIHRvcCBsZXZlbFxuIn0= -->
+<pre><code>Error: no function to return from, jumping to top level</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Project specific s3 methods</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJvY2Vzc19kYXRhLnByb2plY3RfYWxwaGEgPC0gZnVuY3Rpb24ob2JqLCBkYXRhKSB7XG4gIG9wdGlvbnMgPC0gb2JqJG9wdGlvbnNcbiAgTmV4dE1ldGhvZCgpXG59XG5gYGAifQ== -->
+<pre class="r"><code>process_data.project_alpha &lt;- function(obj, data) {
+  options &lt;- obj$options
+  NextMethod()
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>If a function calls UseMethod(“fun”), and it is applied to an object with class attributes c(“first”, “second”), the system searches for a function called fun.first, and then applies it to the object. If that is not found, then it tries to find fun.second. If that is not found, it tries to find fun.default. If that is not found, an error results.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBleGVjdXRlIVxuYWxwaGFfcHJvY2Vzc2VkIDwtIHJ1bl9kYXRhX3Byb2Nlc3MoXG4gICAgXCJhbHBoYVwiLCBsaXN0KGFscGhhID0gXCJnb29kXCIpLCBcbiAgICAnYWxwaGFfZGF0YSdcbilcblxuYGBgIn0= -->
+<pre class="r"><code># execute!
+alpha_processed &lt;- run_data_process(
+    &quot;alpha&quot;, list(alpha = &quot;good&quot;), 
+    'alpha_data'
+)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiZGVidWdnaW5nIGluOiBwcm9jZXNzX2RhdGEocHJvamVjdCwgZGF0YSA9IGRhdGEpXG5kZWJ1ZyBhdCAjMToge1xuICAgIFVzZU1ldGhvZChcInByb2Nlc3NfZGF0YVwiLCBvYmopXG59XG4ifQ== -->
+<pre><code>debugging in: process_data(project, data = data)
+debug at #1: {
+    UseMethod(&quot;process_data&quot;, obj)
+}</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUVxuYGBgIn0= -->
+<pre class="r"><code>Q</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>#Closures</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5kZiA8LSBkYXRhLmZyYW1lKHJlcGxpY2F0ZSg2LCBzYW1wbGUoYygxOjEwLCAtOTkpLCA2LCByZXBsYWNlID0gVFJVRSkpKVxubWlzIDwtIGZ1bmN0aW9uKG5hX3ZhbHVlKSB7XG4gIGZ1bmN0aW9uKHgpIHtcbiAgICB4W3ggPT0gbmFfdmFsdWVdIDwtIE5BXG4gICAgeFxuICB9XG59XG5taXM5OSA8LSBtaXMoLTk5KVxuXG5kZltdIDwtIGxhcHBseShkZiwgbWlzOTkpXG5cbm1hcChkZiwgYyhtb2RlLCBtZWRpYW4pLCBuYS5ybSA9IFQpXG5gYGAifQ== -->
+<pre class="r"><code>
+df &lt;- data.frame(replicate(6, sample(c(1:10, -99), 6, replace = TRUE)))
+mis &lt;- function(na_value) {
+  function(x) {
+    x[x == na_value] &lt;- NA
+    x
+  }
+}
+mis99 &lt;- mis(-99)
+
+df[] &lt;- lapply(df, mis99)
+
+map(df, c(mode, median), na.rm = T)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTm90ZXMgb24gT3JnYW5pemluZyBmdW5jdGlvbnMgd2l0aCBTMyBtZXRob2RzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpXaGF0IGlmIHlvdSBoYXZlIGEgZ2VuZXJhbCBkYXRhIHdyYW5nbGluZyBwcm9jZWR1cmUsIHRoYXQgd29ya3MgZm9yIGFsbCB5b3VyIHByb2plY3RzLCBidXQgeW91IG5lZWQgaXQgY3VzdG9taXplZCBmb3IgZGlmZmVyZW50IHZhcmlhbnRzPyAKSW4gb3RoZXIgd29yZHMsIHRoaXMgcHJvY2VkdXJlIGJhc2ljYWxseSBhcHBsaWVzIHRvIGFsbCBvZiB5b3VyIHByb2plY3RzLCBidXQgaXQgaXMgc29tZXdoYXQgZGlmZmVyZW50LCBzbWFsbCB0aGluZ3MgeW91IHdhbnQgdG8gY2hhbmdlPwoKWW91IG1ha2UgYW4gczMgb2JqZWN0IHRoYXQgZGVmaW5lcyB5b3VyIHByb2plY3QuIAoKYGBge3J9CmNyZWF0ZV9wcm9qZWN0IDwtIGZ1bmN0aW9uKHByb2plY3RfbmFtZSwgb3B0aW9ucyl7CiAgICBwcm9qZWN0IDwtIHN0cnVjdHVyZSgKICAgICAgICBsaXN0KAogICAgICAgICAgICBwcm9qZWN0X25hbWUgPSBwcm9qZWN0X25hbWUsCiAgICAgICAgICAgICAgIAogICAgICAgICAgICAjIE5vdGUgdGhhdCB5b3UgY2FuIHdyYXAgYWxsIHByb2plY3QgCiAgICAgICAgICAgICMgc3BlY2lmaWMgcGFyYW1zIGludG8gYW4gb3B0aW9ucyBsaXN0IAogICAgICAgICAgICAjIGFuZCB1bnBhY2sgaXQgbGF0ZXIgaW4gdGhlIFMzIG1ldGhvZHMuCiAgICAgICAgCW9wdGlvbnMgPSBvcHRpb25zCiAgICAgICAgKSwKICAgICAgCiAgICAgICAgIyBjbGFzcyBuYW1lIGlzIHNpbXBseSB0aGUgcHJvamVjdF9uYW1lLCB5b3UgCiAgICAgICAgIyBjYW4gYWxzbyBhc3NpZ24gYWRkaXRvbmFsIHBhcmVudCBjbGFzc2VzIHRvCiAgICAgICAgIyBzZXQgdXAgYW4gaW5oZXJpdGFuY2Ugc3RydWN0dXJlLCB3aGljaCBpcyAKICAgICAgICAjIHBhcnRpY3VsYXJseSB1c2VmdWwgaWYgeW91IGhhdmUgbGF5ZXJzIG9mIAogICAgICAgICMgcHJvamVjdHMgdGhhdCBmb2xsb3cgb25lIGdlbmVyaWMgcHJvY2VkdXJlCiAgICAgICAKICAgICAgICAjIEUuZy4sIGNsYXNzID0gYyhwcm9qZWN0X25hbWUsICJteV9wcm9qZWN0IikKICAgICAgICAjIGFsbCBwcm9qZWN0cyBhcmUgYWxzbyAibXlfcHJvamVjdCIKICAgICAgICBjbGFzcyA9IHByb2plY3RfbmFtZQogICAgKQogICAgcmV0dXJuKHByb2plY3QpCn0KCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTm90ZXMgb24gT3JnYW5pemluZyBmdW5jdGlvbnMgd2l0aCBTMyBtZXRob2RzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpXaGF0IGlmIHlvdSBoYXZlIGEgZ2VuZXJhbCBkYXRhIHdyYW5nbGluZyBwcm9jZWR1cmUsIHRoYXQgd29ya3MgZm9yIGFsbCB5b3VyIApwcm9qZWN0cywgYnV0IHlvdSBuZWVkIGl0IGN1c3RvbWl6ZWQgZm9yIGRpZmZlcmVudCB2YXJpYW50cz8gCkluIG90aGVyIHdvcmRzLCB0aGlzIHByb2NlZHVyZSBiYXNpY2FsbHkgYXBwbGllcyB0byBhbGwgb2YgeW91ciBwcm9qZWN0cywgYnV0IGl0IAppcyBzb21ld2hhdCBkaWZmZXJlbnQsIHNtYWxsIHRoaW5ncyB5b3Ugd2FudCB0byBjaGFuZ2U/CgpZb3UgbWFrZSBhbiBzMyBvYmplY3QgdGhhdCBkZWZpbmVzIHlvdXIgcHJvamVjdC4gCgpgYGB7cn0KI2NyZWF0ZV9wcm9qZWN0IGlzIGEgZnVuY3Rpb24gdGhhdCB0YWtlcyBhIHByb2plY3RfbmFtZSBhbmQgc29tZSBvcHRpb25zLCBhbmQgCiN1c2VzIHRoZSBzdHJ1Y3R1cmUgZnVuY3Rpb24sIHdoaWNoIHJldHVybnMgdGhlIGdpdmVuIG9iamVjdCB3aXRoIGZ1cnRoZXIgCiNhdHRyaWJ1dGVzIHNldC4KY3JlYXRlX3Byb2plY3QgPC0gZnVuY3Rpb24ocHJvamVjdF9uYW1lLCBvcHRpb25zKXsKICAgIHByb2plY3QgPC0gc3RydWN0dXJlKAogICAgICAgIGxpc3QoCiAgICAgICAgICAgIHByb2plY3RfbmFtZSA9IHByb2plY3RfbmFtZSwKICAgICAgICAgICAgICAgCiAgICAgICAgICAgICMgTm90ZSB0aGF0IHlvdSBjYW4gd3JhcCBhbGwgcHJvamVjdCAKICAgICAgICAgICAgIyBzcGVjaWZpYyBwYXJhbXMgaW50byBhbiBvcHRpb25zIGxpc3QgCiAgICAgICAgICAgICMgYW5kIHVucGFjayBpdCBsYXRlciBpbiB0aGUgUzMgbWV0aG9kcy4KICAgICAgICAJb3B0aW9ucyA9IG9wdGlvbnMKICAgICAgICApLAogICAgICAKICAgICAgICAjIGNsYXNzIG5hbWUgaXMgc2ltcGx5IHRoZSBwcm9qZWN0X25hbWUsIHlvdSAKICAgICAgICAjIGNhbiBhbHNvIGFzc2lnbiBhZGRpdG9uYWwgcGFyZW50IGNsYXNzZXMgdG8KICAgICAgICAjIHNldCB1cCBhbiBpbmhlcml0YW5jZSBzdHJ1Y3R1cmUsIHdoaWNoIGlzIAogICAgICAgICMgcGFydGljdWxhcmx5IHVzZWZ1bCBpZiB5b3UgaGF2ZSBsYXllcnMgb2YgCiAgICAgICAgIyBwcm9qZWN0cyB0aGF0IGZvbGxvdyBvbmUgZ2VuZXJpYyBwcm9jZWR1cmUKICAgICAgIAogICAgICAgICMgRS5nLiwgY2xhc3MgPSBjKHByb2plY3RfbmFtZSwgIm15X3Byb2plY3QiKQogICAgICAgICMgYWxsIHByb2plY3RzIGFyZSBhbHNvICJteV9wcm9qZWN0IgogICAgICAgIGNsYXNzID0gcHJvamVjdF9uYW1lCiAgICApCiAgICByZXR1cm4ocHJvamVjdCkKfQoKY3JlYXRlX3Byb2plY3QoInlvIiwgb3B0aW9ucyA9IDEpCmBgYAoKUiBoYXMgYSBzaW1wbGUgZ2VuZXJpYyBmdW5jdGlvbiBtZWNoYW5pc20gd2hpY2ggY2FuIGJlIHVzZWQgZm9yIApvYmplY3Qtb3JpZW50ZWQgc3R5bGUuCgpNZXRob2QgZGlzcGF0Y2ggdXNlcyB0aGUgY2xhc3Mgb2YgdGhlIGZpcnN0IGFyZ3VtZW50IHRvIHRoZSBnZW5lcmljLgoKVXNlTWV0aG9kIHRha2VzIGEgZ2VuZXJpYyBhbmQgYW4gb2JqZWN0LiBTbyBoZXJlIHByb2Nlc3NfZGF0YSBpcyB0aGUgZ2VuZXJpYywgCmFuZCBvYmogaXMgdGhlIG9iamVjdC4KYGBge3J9CnByb2Nlc3NfZGF0YSA8LSBmdW5jdGlvbihvYmosIGRhdGEpewogICAgVXNlTWV0aG9kKCJwcm9jZXNzX2RhdGEiLCBvYmopCn0KYGBgCgpZb3UgY2FuIGFsc28gY3JlYXRlIGEgZGVmYXVsdCBtZXRob2QgdGhhdCB3b3JrcyBmb3IgYWxsIHByb2plY3RzCmBgYHtyfQpwcm9jZXNzX2RhdGEuZGVmYXVsdCA8LSBmdW5jdGlvbihvYmosIGRhdGEpewogICAgIyBkbyBzb21ldGhpbmcgdGhhdCBhcHBsaWVzIHRvIGV2ZXJ5IHByb2plY3QKICAgIHJldHVybihkYXRhKQp9CmBgYAoKUXVlc3Rpb246IApgYGB7cn0KcHJvY2Vzc19kYXRhLm15X3Byb2plY3QgPC0gZnVuY3Rpb24ob2JqLCBkYXRhKSB7CiAgcmV0dXJuKGRhdGEpCn0KYGBgCgpQcm9qZWN0IHNwZWNpZmljIHMzIG1ldGhvZHMKYGBge3J9CnByb2Nlc3NfZGF0YS5wcm9qZWN0X2FscGhhIDwtIGZ1bmN0aW9uKG9iaiwgZGF0YSkgewogIG9wdGlvbnMgPC0gb2JqJG9wdGlvbnMKICBOZXh0TWV0aG9kKCkKfQpgYGAKCklmIGEgZnVuY3Rpb24gY2FsbHMgVXNlTWV0aG9kKCJmdW4iKSwgYW5kIGl0IGlzIGFwcGxpZWQgdG8gYW4gb2JqZWN0IHdpdGggY2xhc3MKYXR0cmlidXRlcyBjKCJmaXJzdCIsICJzZWNvbmQiKSwgdGhlIHN5c3RlbSBzZWFyY2hlcyBmb3IgYSBmdW5jdGlvbiBjYWxsZWQgCmZ1bi5maXJzdCwgYW5kIHRoZW4gYXBwbGllcyBpdCB0byB0aGUgb2JqZWN0LiBJZiB0aGF0IGlzIG5vdCBmb3VuZCwgdGhlbiBpdCAKdHJpZXMgdG8gZmluZCBmdW4uc2Vjb25kLiBJZiB0aGF0IGlzIG5vdCBmb3VuZCwgaXQgdHJpZXMgdG8gZmluZCBmdW4uZGVmYXVsdC4gSWYKdGhhdCBpcyBub3QgZm91bmQsIGFuIGVycm9yIHJlc3VsdHMuIAoKYGBge3J9CnJ1bl9kYXRhX3Byb2Nlc3MgPC0gZnVuY3Rpb24obmFtZSwgb3B0aW9ucywgZGF0YSl7CiAgICAgICAKICAjY3JlYXRlIGEgcHJvamVjdAogICAgcHJvamVjdCA8LSBjcmVhdGVfcHJvamVjdChuYW1lLCBvcHRpb25zKQogICNydW4gdGhlIHByb2Nlc3NfZGF0YSBmdW5jLgoJcHJvY2Vzc2VkX2RhdGEgPC0gcHJvY2Vzc19kYXRhKAogICAgICAgIHByb2plY3QsIAogICAgICAgIGRhdGEgPSBkYXRhCiAgICApCiAgICByZXR1cm4ocHJvY2Vzc2VkX2RhdGEpCn0KICAgCiMgZXhlY3V0ZSEKYWxwaGFfcHJvY2Vzc2VkIDwtIHJ1bl9kYXRhX3Byb2Nlc3MoCiAgICAiYWxwaGEiLCBsaXN0KGFscGhhID0gImdvb2QiKSwgCiAgICAnYWxwaGFfZGF0YScKKQpiZXRhX3Byb2Nlc3NlZCA8LSBydW5fZGF0YV9wcm9jZXNzKAogICAgImJldGEiLCBsaXN0KGJldGEgPSAiYmV0dGVyIiksIAogICAgYmV0YV9kYXRhCikKYGBgCgoKI0Nsb3N1cmVzCmBgYHtyfQoKZGYgPC0gZGF0YS5mcmFtZShyZXBsaWNhdGUoNiwgc2FtcGxlKGMoMToxMCwgLTk5KSwgNiwgcmVwbGFjZSA9IFRSVUUpKSkKbWlzIDwtIGZ1bmN0aW9uKG5hX3ZhbHVlKSB7CiAgZnVuY3Rpb24oeCkgewogICAgeFt4ID09IG5hX3ZhbHVlXSA8LSBOQQogICAgeAogIH0KfQptaXM5OSA8LSBtaXMoLTk5KQoKZGZbXSA8LSBsYXBwbHkoZGYsIG1pczk5KQoKbWFwKGRmLCBjKG1vZGUsIG1lZGlhbiksIG5hLnJtID0gVCkKYGBgCgo=</div>
 
 
 
