@@ -5,10 +5,53 @@ output: html_notebook
 
 What if you have a general data wrangling procedure, that works for all your 
 projects, but you need it customized for different variants? 
-In other words, this procedure basically applies to all of your projects, but it 
-is somewhat different, small things you want to change?
+In other words, this procedure basically applies to all of your projects, but it is somewhat different, small things you want to change?
 
 You make an s3 object that defines your project. 
+
+s3 generics are functions that call different methods based on the class of the
+object you call them with. 
+
+The function structure is useful to set the class attribute of an object.
+For example:
+```{r}
+foo <- structure(list(), class = "foo")
+class(foo) #"foo"
+inherits(foo, "foo") #true
+```
+
+Most S3 classes have a constructor function, like factor or data.frame()
+
+```{r}
+mod <- glm(log(mpg) ~ log(disp), data = mtcars)
+class(mod)
+print(mod)
+```
+
+To add a new generic, make a function with UseMethod().
+UseMethod takes the name of the generic, and the argument to choose method 
+(method dispatch).
+
+So in the example below, function f is a generic. Depending on the class I give
+to f, it will choose which method of f to use. Below, I give a the class 'a', so
+it automatically calls f.a. If I give it a class "b", but there is no method 
+defined for class "b", it will fail, unless I give it a default method.
+
+```{r}
+#a generic
+f<- function(x) UseMethod("f")
+
+# method for the 'a' classs
+f.a <- function(x) x +1
+
+#make default method
+f.default <- function(x) x*9
+a <- structure(1, class = 'b')
+yo <- f(a)
+```
+
+If you call an S3 generic on a non-S3 object, it will dispatch to the method of
+the implicit class of the base type.
 
 ```{r}
 #create_project is a function that takes a project_name and some options, and 

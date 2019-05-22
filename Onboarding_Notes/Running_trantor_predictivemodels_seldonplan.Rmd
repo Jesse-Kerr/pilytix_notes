@@ -1,0 +1,10 @@
+---
+title: "Running trantor/predictive models/seldonPlan"
+output: html_notebook
+---
+
+```{r}
+library(SeldonPlan)
+library(Trantor)
+```
+
